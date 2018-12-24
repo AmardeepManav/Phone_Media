@@ -1,6 +1,7 @@
 package com.phonemedia;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -57,7 +58,8 @@ public class HomeFragment extends Fragment {
         songsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(getContext(), MusicActivity.class);
+                startActivity(intent);
             }
         });
     }

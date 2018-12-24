@@ -30,4 +30,7 @@ dependencies {
     //Butterknife...
 //    implementation 'com.jakewharton:butterknife:9.0.0-rc3'
 //    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc3'
+
+    // cardView...
+    implementation 'com.android.support:design:28.0.0'
 }
