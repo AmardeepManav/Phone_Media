@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -25,6 +26,7 @@ public class HomeFragment extends Fragment {
 
     private ListView songsList;
     private String[] items;
+    ArrayList<File> mySongs;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -44,7 +46,7 @@ public class HomeFragment extends Fragment {
         View view = getView();
         songsList = view.findViewById(R.id.song_list);
 
-        ArrayList<File> mySongs = findSongs(Environment.getExternalStorageDirectory());
+        mySongs = findSongs(Environment.getExternalStorageDirectory());
         items = new String[mySongs.size()];
         for ( int i = 0; i<mySongs.size(); i++) {
 
@@ -58,8 +60,13 @@ public class HomeFragment extends Fragment {
         songsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle args = new Bundle();
+                args.putSerializable("ARRAYLIST",(Serializable) mySongs);
                 Intent intent = new Intent(getContext(), MusicActivity.class);
+                intent.putExtra("Pos", position);
+                intent.putExtra("BUNDLE", args);
                 startActivity(intent);
+
             }
         });
     }
@@ -67,6 +74,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<File> findSongs(File fileRoot) {
         ArrayList<File> allFiles = new ArrayList<>();
         File[] files = fileRoot.listFiles();
+        if(allFiles!= null){
         for (File singeFile : files) {
             if (singeFile.isDirectory() && !singeFile.isHidden()) {
                 allFiles.addAll(findSongs(singeFile));
@@ -75,7 +83,7 @@ public class HomeFragment extends Fragment {
                     allFiles.add(singeFile);
                 }
             }
-        }
+        }}
         return allFiles;
     };
 }

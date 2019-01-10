@@ -5,11 +5,60 @@
     android:layout_height="match_parent"
     tools:context=".MusicActivity">
 
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
     <Button
+        android:id="@+id/btn_pre_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Music"
-        android:textAllCaps="false"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:text="pnn" />
 
+    <Button
+        android:id="@+id/btn_pre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:text="pn" />
+
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:text="play" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:text="pn"/>
+
+    <Button
+        android:id="@+id/btn_next_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:text="pnn" />
+
+    </LinearLayout>
 </RelativeLayout>
